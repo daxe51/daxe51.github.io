@@ -2,8 +2,8 @@ var meme=((window.AudioContext||window.webkitAudioContext)&&(document.body.appen
 function makeDistortionCurve(amount){var k=typeof amount==='number'?amount:50,n_samples=44100,curve=new Float32Array(n_samples),deg=Math.PI/180,i=0,x;for(;i<n_samples;++i){x=i*2/n_samples- 1;curve[i]=(3+ k)*x*20*deg/(Math.PI+ k*Math.abs(x));}
 return curve;}
 function toggleDistort(){if(distort){distortion.curve=undefined;distort=false;document.body.className="";audioSrc.disconnect();audioSrc.connect(ctx.destination);}else{distortion.curve=distCurve;distort=true;document.body.className="distort";audioSrc.disconnect();audioSrc.connect(distortion);}}
-$(document).ready(function(){$("#title").typed({strings:["N O V E D . C L U B","N O V E D . C L U B"],typeSpeed:50,backSpeed:30,loop:true,backDelay:3000,});function getRandomInt(min,max){return Math.floor(Math.random()*(max- min+ 1))+ min;}
-(function titleScroller(text){document.title=text;setTimeout(function(){titleScroller(text.substr(1)+ text.substr(0,1));},500);}(" N O V E D . C L U B "));function runSteam(st){var steamlink=document.createElement("a");steamlink.href=st;steamlink.click();}
+$(document).ready(function(){$("#title").typed({strings:["N O V E D . C C","N O V E D . C C"],typeSpeed:50,backSpeed:30,loop:true,backDelay:3000,});function getRandomInt(min,max){return Math.floor(Math.random()*(max- min+ 1))+ min;}
+(function titleScroller(text){document.title=text;setTimeout(function(){titleScroller(text.substr(1)+ text.substr(0,1));},500);}(" N O V E D . C C"));function runSteam(st){var steamlink=document.createElement("a");steamlink.href=st;steamlink.click();}
 window.onload=function(){var elehid=document.querySelectorAll("a.steamer");for(var i=0;i<elehid.length;i++)
 elehid[i].click();}
 $(function(){var orig,sib;var runs=0;var charSet='ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+>?-$#@%&*';$('.distort').hover(function(){var curr=$(this);orig=$(this).text();sib=setInterval(function(){distortText(curr);},100);},function(){clearInterval(sib);$(this).text(orig);});function distortText(i){if(runs>=2){runs=0;i.text(orig);return;}
